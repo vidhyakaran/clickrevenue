@@ -5,17 +5,27 @@ import { ShoppingCart, Layout, PieChart } from 'lucide-react';
 export default function PlatformUI() {
   return (
     <div style={{
-      background: 'rgba(18, 18, 28, 0.4)',
-      backdropFilter: 'blur(24px)',
-      border: '1px solid rgba(255, 255, 255, 0.08)',
-      borderRadius: 'var(--radius-2xl)',
-      padding: 'var(--space-md)',
+      perspective: '1200px',
       width: '100%',
-      aspectRatio: '16/10',
       display: 'flex',
-      gap: 'var(--space-md)',
-      boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 'var(--space-2xl) 0',
     }}>
+      <div style={{
+        background: 'rgba(18, 18, 28, 0.4)',
+        backdropFilter: 'blur(24px)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        borderRadius: 'var(--radius-2xl)',
+        padding: 'var(--space-md)',
+        width: '100%',
+        aspectRatio: '16/10',
+        display: 'flex',
+        gap: 'var(--space-md)',
+        boxShadow: '-20px 40px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255,255,255,0.05)',
+      }}
+      className="platform-3d-card"
+      >
       {/* Sidebar Mock */}
       <div style={{
         width: '80px',
@@ -57,6 +67,7 @@ export default function PlatformUI() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
