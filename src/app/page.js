@@ -145,11 +145,6 @@ export default function Home() {
 
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.heroContent}>
-            <div className={styles.heroBadge}>
-              <span className={styles.heroBadgeDot} />
-              Growth-Focused Marketing Partner
-            </div>
-
             <h1 className={styles.heroTitle}>
               Click that Converts.<br />
               <span className={styles.heroTitleRed}>Revenue</span> that Grows.
@@ -207,7 +202,9 @@ export default function Home() {
             <div className={styles.linearRow}>
               <ScrollReveal direction="left">
                 <div className={styles.linearContent}>
-                  <div className="neon-badge" style={{ alignSelf: 'flex-start' }}>Performance Marketing</div>
+                  <h2 className={styles.heroTitle} style={{ fontSize: 'var(--fs-3xl)', marginBottom: 'var(--space-md)' }}>
+                    Scale with Precision
+                  </h2>
                   <h3 style={{ fontSize: 'var(--fs-2xl)', color: 'var(--cr-white)', fontFamily: 'var(--font-display)', fontWeight: 800 }}>
                     Drive Measurable <span className="text-gradient">Growth</span>
                   </h3>
@@ -242,7 +239,9 @@ export default function Home() {
               </ScrollReveal>
               <ScrollReveal direction="right">
                 <div className={styles.linearContent}>
-                  <div className="neon-badge" style={{ alignSelf: 'flex-start' }}>Marketplace Growth</div>
+                  <h2 className={styles.heroTitle} style={{ fontSize: 'var(--fs-3xl)', marginBottom: 'var(--space-md)' }}>
+                    Dominate Marketplaces
+                  </h2>
                   <h3 style={{ fontSize: 'var(--fs-2xl)', color: 'var(--cr-white)', fontFamily: 'var(--font-display)', fontWeight: 800 }}>
                     Dominate <span className="text-gradient">Amazon & Flipkart</span>
                   </h3>
@@ -267,7 +266,9 @@ export default function Home() {
             <div className={styles.linearRow}>
               <ScrollReveal direction="left">
                 <div className={styles.linearContent}>
-                  <div className="neon-badge" style={{ alignSelf: 'flex-start' }}>Quick Commerce</div>
+                  <h2 className={styles.heroTitle} style={{ fontSize: 'var(--fs-3xl)', marginBottom: 'var(--space-md)' }}>
+                    Master Quick Commerce
+                  </h2>
                   <h3 style={{ fontSize: 'var(--fs-2xl)', color: 'var(--cr-white)', fontFamily: 'var(--font-display)', fontWeight: 800 }}>
                     10-Minute <span className="text-gradient">Delivery</span> Scale
                   </h3>
@@ -395,7 +396,6 @@ export default function Home() {
                     </div>
                   </div>
                   <div className={styles.caseBody}>
-                    <span className={styles.caseTag}>{cs.tag}</span>
                     <h3 className={styles.caseTitle}>{cs.title}</h3>
                     <p className={styles.caseDesc}>{cs.desc}</p>
                     <div className={styles.caseMetrics}>
