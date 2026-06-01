@@ -18,11 +18,24 @@
   pointer-events: none;
 }
 
-.heroContent {
+.heroContainer {
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.heroContent {
   padding: var(--space-4xl) 0;
+  max-width: 650px;
+}
+
+.heroVisual {
+  position: relative;
+  animation: scaleIn 1s ease 0.4s both;
 }
 
 /* ★ Neon glassmorphic badge ★ */
@@ -59,8 +72,7 @@
   color: var(--cr-white);
   line-height: 1.1;
   margin-bottom: var(--space-lg);
-  animation: fadeInUp 0.8s ease 0.2s forwards;
-  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.2s both;
 }
 
 .heroTitleRed {
@@ -89,16 +101,14 @@
   line-height: 1.7;
   margin-bottom: var(--space-2xl);
   max-width: 560px;
-  animation: fadeInUp 0.8s ease 0.4s forwards;
-  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.4s both;
 }
 
 .heroButtons {
   display: flex;
   gap: var(--space-md);
   flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease 0.6s forwards;
-  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.6s both;
 }
 
 .heroScroll {
@@ -476,6 +486,14 @@
 }
 
 @media (max-width: 768px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
   .heroContent {
     padding: var(--space-2xl) 0;
   }

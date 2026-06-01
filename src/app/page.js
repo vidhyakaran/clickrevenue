@@ -141,32 +141,37 @@ export default function Home() {
       {/* ========== HERO ========== */}
       <section className={styles.hero}>
         <HeroScene />
-
         <div className={styles.heroOverlay} />
 
-        <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroBadge}>
-            <span className={styles.heroBadgeDot} />
-            Growth-Focused Marketing Partner
+        <div className={`container ${styles.heroContainer}`}>
+          <div className={styles.heroContent}>
+            <div className={styles.heroBadge}>
+              <span className={styles.heroBadgeDot} />
+              Growth-Focused Marketing Partner
+            </div>
+
+            <h1 className={styles.heroTitle}>
+              Click that Converts.<br />
+              <span className={styles.heroTitleRed}>Revenue</span> that Grows.
+            </h1>
+
+            <p className={styles.heroSubtitle}>
+              Scale customer acquisition, revenue, and digital distribution across Ads,
+              Marketplaces, and Quick Commerce with India&apos;s fastest-growing growth partner.
+            </p>
+
+            <div className={styles.heroButtons}>
+              <Link href="/contact" className="btn btn-primary">
+                Book a Consultation <ArrowRight size={18} />
+              </Link>
+              <Link href="#growth-audit" className="btn btn-outline">
+                Get Free Growth Audit
+              </Link>
+            </div>
           </div>
 
-          <h1 className={styles.heroTitle}>
-            Click that Converts.<br />
-            <span className={styles.heroTitleRed}>Revenue</span> that Grows.
-          </h1>
-
-          <p className={styles.heroSubtitle}>
-            Scale customer acquisition, revenue, and digital distribution across Ads,
-            Marketplaces, and Quick Commerce with India&apos;s fastest-growing growth partner.
-          </p>
-
-          <div className={styles.heroButtons}>
-            <Link href="/contact" className="btn btn-primary">
-              Book a Consultation <ArrowRight size={18} />
-            </Link>
-            <Link href="#growth-audit" className="btn btn-outline">
-              Get Free Growth Audit
-            </Link>
+          <div className={styles.heroVisual}>
+            <PlatformUI />
           </div>
         </div>
 
