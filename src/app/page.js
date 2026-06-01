@@ -2,8 +2,8 @@
 
 import { Suspense, lazy } from 'react';
 import Link from 'next/link';
-import {
-  ArrowRight, Target, Search, ShoppingBag,
+import Head from 'next/head';
+import { ArrowRight, Target, Search, ShoppingBag,
   Zap, BarChart3, TrendingUp, Users, Globe,
   CheckCircle, MousePointerClick
 } from 'lucide-react';
@@ -14,6 +14,7 @@ import StatsCounter from '@/components/StatsCounter/StatsCounter';
 import CTASection from '@/components/CTASection/CTASection';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import FAQBlock from '@/components/FAQBlock/FAQBlock';
 
 import HeroScene from '@/components/HeroScene/HeroScene';
 import GrowthChart from '@/components/SleekGraphics/GrowthChart';
@@ -72,28 +73,71 @@ const caseStudies = [
     icon: ShoppingBag,
     tag: 'Marketplace',
     title: 'NatureFresh Foods',
-    desc: 'Scaled Amazon & Flipkart sales by 340% with optimized listings and strategic ad campaigns.',
-    metrics: [{ value: '340%', label: 'Sales Growth' }, { value: '5.2x', label: 'ROAS' }],
+    desc: '[TODO: Insert real case study description]',
+    metrics: [{ value: '[TODO]', label: 'Metric 1' }, { value: '[TODO]', label: 'Metric 2' }],
   },
   {
     icon: Zap,
     tag: 'Quick Commerce',
     title: 'StyleCraft D2C',
-    desc: 'Launched on Blinkit & Instamart, achieving ₹2Cr monthly run rate within 90 days.',
-    metrics: [{ value: '₹2Cr', label: 'Monthly GMV' }, { value: '90', label: 'Days to Scale' }],
+    desc: '[TODO: Insert real case study description]',
+    metrics: [{ value: '[TODO]', label: 'Metric 1' }, { value: '[TODO]', label: 'Metric 2' }],
   },
   {
     icon: Target,
     tag: 'Performance Marketing',
     title: 'FitLife Nutrition',
-    desc: 'Reduced CAC by 45% while scaling ad spend 3x through advanced audience optimization.',
-    metrics: [{ value: '45%', label: 'CAC Reduction' }, { value: '8x', label: 'ROAS' }],
+    desc: '[TODO: Insert real case study description]',
+    metrics: [{ value: '[TODO]', label: 'Metric 1' }, { value: '[TODO]', label: 'Metric 2' }],
   },
 ];
 
 export default function Home() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is ClickRevenue different from a standard digital marketing agency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We are a full-funnel growth partner. Instead of just running ads and sending traffic, we manage your entire revenue engine—from Meta/Google acquisition to organic SEO, and deep distribution across marketplaces (Amazon/Flipkart) and Quick Commerce (Blinkit/Instamart)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you guarantee ROAS or specific revenue targets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While we cannot guarantee a specific ROAS before an initial audit due to market variables, our strategies are deeply data-driven. We work with brands on a revenue-first approach, setting clear KPIs in month 1 and scaling aggressively once unit economics are proven."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is your typical onboarding process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our onboarding takes 7-14 days. It involves a deep-dive technical audit of your existing accounts, setting up attribution tracking, analyzing competitor gaps, and delivering a 90-day growth roadmap before any campaigns go live."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you handle creative production as well as media buying?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our growth strategies integrate tightly with creative execution. We produce performance-focused static and video assets designed specifically for conversion, rather than just brand aesthetics."
+        }
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ========== HERO ========== */}
       <section className={styles.hero}>
         <HeroScene />
@@ -118,10 +162,10 @@ export default function Home() {
 
           <div className={styles.heroButtons}>
             <Link href="/contact" className="btn btn-primary">
-              Start Growing <ArrowRight size={18} />
+              Book a Consultation <ArrowRight size={18} />
             </Link>
-            <Link href="/case-studies" className="btn btn-outline">
-              View Case Studies
+            <Link href="#growth-audit" className="btn btn-outline">
+              Get Free Growth Audit
             </Link>
           </div>
         </div>
@@ -385,6 +429,9 @@ export default function Home() {
           <TestimonialSlider />
         </div>
       </section>
+
+      {/* ========== FAQ ========== */}
+      <FAQBlock />
 
       {/* ========== CTA ========== */}
       <CTASection />

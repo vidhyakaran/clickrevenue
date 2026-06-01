@@ -16,6 +16,43 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.clickrevenue.in/#organization",
+                  "name": "ClickRevenue",
+                  "url": "https://www.clickrevenue.in/",
+                  "logo": "https://www.clickrevenue.in/logo.png",
+                  "sameAs": [
+                    "https://www.linkedin.com/company/clickrevenue",
+                    "https://twitter.com/clickrevenue"
+                  ],
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-9999999999",
+                    "contactType": "customer service"
+                  }
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.clickrevenue.in/#website",
+                  "url": "https://www.clickrevenue.in/",
+                  "name": "ClickRevenue",
+                  "publisher": {
+                    "@id": "https://www.clickrevenue.in/#organization"
+                  }
+                }
+              ]
+            })
+          }}
+        />
+      </head>
       <body>
         <Navbar />
         <main style={{ minHeight: '100vh' }}>

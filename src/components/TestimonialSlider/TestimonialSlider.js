@@ -5,28 +5,28 @@ import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    quote: "ClickRevenue transformed our digital presence. Our marketplace sales grew 340% in just 6 months with their strategic approach.",
-    name: "Rajesh Sharma",
-    role: "CEO, NatureFresh Foods",
-    company: "FMCG Brand",
+    quote: "[TODO: Insert real client testimonial here. Ensure it highlights measurable results.]",
+    name: "[TODO: Insert Name]",
+    role: "[TODO: Insert Role]",
+    company: "[TODO: Insert Company]",
   },
   {
-    quote: "The team's expertise in quick commerce helped us launch on Blinkit and Instamart seamlessly. Revenue doubled within the first quarter.",
-    name: "Priya Menon",
-    role: "Head of Digital, StyleCraft",
-    company: "D2C Fashion",
+    quote: "[TODO: Insert real client testimonial here. Ensure it highlights measurable results.]",
+    name: "[TODO: Insert Name]",
+    role: "[TODO: Insert Role]",
+    company: "[TODO: Insert Company]",
   },
   {
-    quote: "Their performance marketing strategies delivered an 8x ROAS consistently. Best decision we made for our brand's growth.",
-    name: "Amit Patel",
-    role: "Founder, FitLife Nutrition",
-    company: "Health & Wellness",
+    quote: "[TODO: Insert real client testimonial here. Ensure it highlights measurable results.]",
+    name: "[TODO: Insert Name]",
+    role: "[TODO: Insert Role]",
+    company: "[TODO: Insert Company]",
   },
   {
-    quote: "From Amazon to Google Ads, ClickRevenue manages everything under one roof. Our acquisition costs dropped by 45% in 3 months.",
-    name: "Sneha Gupta",
-    role: "Marketing Director, TechGear",
-    company: "Consumer Electronics",
+    quote: "[TODO: Insert real client testimonial here. Ensure it highlights measurable results.]",
+    name: "[TODO: Insert Name]",
+    role: "[TODO: Insert Role]",
+    company: "[TODO: Insert Company]",
   },
 ];
 

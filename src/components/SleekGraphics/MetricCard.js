@@ -39,8 +39,8 @@ export default function MetricCard() {
         <div style={{ color: 'var(--cr-grey-400)', fontSize: 'var(--fs-sm)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '8px' }}>
           Delivery Speed
         </div>
-        <div style={{ color: 'var(--cr-white)', fontSize: 'var(--fs-4xl)', fontFamily: 'var(--font-display)', fontWeight: 900 }}>
-          <span className="text-gradient">10</span> MINS
+        <div style={{ color: 'var(--cr-white)', fontSize: 'var(--fs-xl)', fontFamily: 'var(--font-display)', fontWeight: 900 }}>
+          <span className="text-gradient">[TODO: Insert Metric]</span>
         </div>
         <div style={{ marginTop: 'var(--space-md)', display: 'inline-block', background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.2)', padding: '4px 12px', borderRadius: 'var(--radius-full)', color: 'var(--neon-cyan)', fontSize: 'var(--fs-xs)', fontWeight: 600 }}>
           Industry Leading

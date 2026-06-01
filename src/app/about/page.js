@@ -10,7 +10,6 @@ import CTASection from '@/components/CTASection/CTASection';
 import Logo from '@/components/Logo/Logo';
 
 export const metadata = {
-  title: 'About Us — Our Story | ClickRevenue',
   description: 'Learn about ClickRevenue — India\'s growth-focused marketing and commerce partner helping brands scale across ads, marketplaces, and quick commerce.',
 };
 

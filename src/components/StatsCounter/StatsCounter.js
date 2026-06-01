@@ -1,51 +1,18 @@
 'use client';
+import React from 'react';
 
-import { useEffect, useRef, useState } from 'react';
-
-function Counter({ end, suffix = '', prefix = '', duration = 2000 }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const startTime = performance.now();
-          const animate = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * end));
-            if (progress < 1) requestAnimationFrame(animate);
-          };
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, duration]);
-
-  return (
-    <span ref={ref}>
-      {prefix}{count}{suffix}
-    </span>
-  );
-}
-
-const stats = [
-  { value: 500, suffix: '+', label: 'Brands Scaled' },
-  { value: 10, suffix: 'x', label: 'Average ROI' },
-  { value: 50, suffix: 'M+', label: 'Revenue Generated' },
-  { value: 15, suffix: '+', label: 'Industry Verticals' },
+const defaultStats = [
+  { value: '[TODO: Insert Brands Scaled]', suffix: '', label: 'Brands Scaled' },
+  { value: '[TODO: Insert Avg ROI]', suffix: '', label: 'Average ROI' },
+  { value: '[TODO: Insert Revenue]', suffix: '', label: 'Revenue Generated' },
+  { value: '[TODO: Insert Verticals]', suffix: '', label: 'Industry Verticals' },
 ];
 
 export default function StatsCounter({ customStats }) {
-  const data = customStats || stats;
+  const data = customStats || defaultStats;
+  
+  if (!data || data.length === 0) return null;
+
   return (
     <div style={{
       display: 'grid',
@@ -61,18 +28,18 @@ export default function StatsCounter({ customStats }) {
           alignItems: 'center',
           gap: 'var(--space-sm)',
         }}>
-          {/* ★ Gradient number values ★ */}
+          {/* Static rendering - no "0" state before hydration */}
           <span style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+            fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', /* slightly smaller for TODO text */
             fontWeight: 800,
             background: 'linear-gradient(135deg, #00F5D4, #7B2FFF)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
-            lineHeight: 1,
+            lineHeight: 1.2,
           }}>
-            <Counter end={stat.value} suffix={stat.suffix} prefix={stat.prefix || ''} />
+            {stat.prefix || ''}{stat.value}{stat.suffix || ''}
           </span>
           <span style={{
             color: 'var(--cr-grey-400)',

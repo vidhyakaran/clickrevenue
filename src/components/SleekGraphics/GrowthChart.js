@@ -31,8 +31,8 @@ export default function GrowthChart() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 1 }}>
         <div>
           <div style={{ color: 'var(--cr-grey-400)', fontSize: 'var(--fs-sm)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>Revenue Growth</div>
-          <div style={{ color: 'var(--cr-white)', fontSize: 'var(--fs-3xl)', fontFamily: 'var(--font-display)', fontWeight: 800, marginTop: '4px' }}>
-            +340<span style={{ color: 'var(--neon-cyan)' }}>%</span>
+          <div style={{ color: 'var(--cr-white)', fontSize: 'var(--fs-lg)', fontFamily: 'var(--font-display)', fontWeight: 800, marginTop: '4px' }}>
+            [TODO: Insert Metric]
           </div>
         </div>
         <div className="neon-icon" style={{ width: 48, height: 48, borderRadius: 'var(--radius-full)' }}>
