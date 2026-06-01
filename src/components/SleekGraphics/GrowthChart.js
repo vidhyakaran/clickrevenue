@@ -5,20 +5,26 @@ import { TrendingUp } from 'lucide-react';
 export default function GrowthChart() {
   return (
     <div style={{
-      background: 'rgba(18, 18, 28, 0.4)',
-      backdropFilter: 'blur(24px)',
-      border: '1px solid rgba(255, 255, 255, 0.08)',
-      borderRadius: 'var(--radius-2xl)',
-      padding: 'var(--space-2xl)',
+      perspective: '1200px',
       width: '100%',
-      aspectRatio: '16/10',
-      position: 'relative',
-      overflow: 'hidden',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
     }}>
+      <div style={{
+        background: 'rgba(18, 18, 28, 0.4)',
+        backdropFilter: 'blur(24px)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+        borderRadius: 'var(--radius-2xl)',
+        padding: 'var(--space-2xl)',
+        width: '100%',
+        aspectRatio: '16/10',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        boxShadow: '-20px 40px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255,255,255,0.05)',
+      }}
+      className="platform-3d-card"
+      >
       {/* Background Glow */}
       <div style={{
         position: 'absolute', top: '-50%', left: '-50%', width: '200%', height: '200%',
@@ -59,6 +65,7 @@ export default function GrowthChart() {
             )}
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

@@ -5,6 +5,10 @@ import { Zap } from 'lucide-react';
 export default function MetricCard() {
   return (
     <div style={{
+      perspective: '1200px',
+      width: '100%',
+    }}>
+    <div style={{
       background: 'rgba(18, 18, 28, 0.4)',
       backdropFilter: 'blur(24px)',
       border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -18,8 +22,10 @@ export default function MetricCard() {
       alignItems: 'center',
       position: 'relative',
       overflow: 'hidden',
-      boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-    }}>
+      boxShadow: '-20px 40px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255,255,255,0.05)',
+    }}
+    className="platform-3d-card"
+    >
       {/* Background Pulse */}
       <div style={{
         position: 'absolute',
@@ -46,6 +52,7 @@ export default function MetricCard() {
           Industry Leading
         </div>
       </div>
+    </div>
     </div>
   );
 }

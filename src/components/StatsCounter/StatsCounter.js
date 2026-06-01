@@ -27,7 +27,16 @@ export default function StatsCounter({ customStats }) {
           flexDirection: 'column',
           alignItems: 'center',
           gap: 'var(--space-sm)',
-        }}>
+          padding: 'var(--space-lg)',
+          background: 'rgba(18, 18, 28, 0.4)',
+          backdropFilter: 'blur(24px)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: 'var(--radius-xl)',
+          transition: 'all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          transformStyle: 'preserve-3d',
+        }}
+        className="stat-card"
+        >
           {/* Static rendering - no "0" state before hydration */}
           <span style={{
             fontFamily: 'var(--font-display)',
@@ -54,6 +63,12 @@ export default function StatsCounter({ customStats }) {
       ))}
 
       <style jsx>{`
+        .stat-card:hover {
+          transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) rotateZ(2deg) scale(1.05) translateY(-10px);
+          box-shadow: -15px 25px 50px rgba(0, 0, 0, 0.4), 0 8px 40px rgba(0, 245, 212, 0.1), 0 4px 60px rgba(123, 47, 255, 0.08);
+          border-color: transparent;
+          z-index: 10;
+        }
         @media (max-width: 768px) {
           div:first-child {
             grid-template-columns: repeat(2, 1fr) !important;
