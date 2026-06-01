@@ -1,0 +1,68 @@
+.heading {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.heading.left {
+  text-align: left;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--neon-cyan);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-md);
+}
+
+.labelDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-neon);
+  animation: glowPulse 2s infinite;
+}
+
+/* ★ Gradient title highlight ★ */
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, var(--fs-4xl));
+  font-weight: 800;
+  color: var(--cr-white);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.titleRed {
+  background: var(--gradient-neon);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--cr-grey-400);
+  font-size: var(--fs-md);
+  max-width: 640px;
+  line-height: 1.7;
+}
+
+.heading:not(.left) .subtitle {
+  margin: 0 auto;
+}
+
+.underline {
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-neon);
+  border-radius: var(--radius-full);
+  margin: var(--space-md) auto 0;
+}
+
+.heading.left .underline {
+  margin-left: 0;
+}

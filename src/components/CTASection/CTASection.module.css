@@ -1,0 +1,106 @@
+.cta {
+  position: relative;
+  padding: var(--space-4xl) 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ★ Neon gradient background ★ */
+.ctaBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00F5D4 0%, #00B4D8 25%, #7B2FFF 60%, #FF006E 100%);
+  background-size: 200% 200%;
+  animation: gradient 8s ease infinite;
+  z-index: -1;
+}
+
+.ctaBg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ctaContent {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, var(--fs-4xl));
+  font-weight: 800;
+  color: var(--cr-white);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ctaSubtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--fs-md);
+  max-width: 560px;
+  margin: 0 auto var(--space-2xl);
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 16px 36px;
+  background: var(--cr-white);
+  color: var(--cr-black);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.ctaBtnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  color: var(--cr-black);
+}
+
+.ctaBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 16px 36px;
+  background: transparent;
+  color: var(--cr-white);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.ctaBtnSecondary:hover {
+  border-color: var(--cr-white);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--cr-white);
+  transform: translateY(-2px);
+}
