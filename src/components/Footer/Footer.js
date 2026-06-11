@@ -40,6 +40,10 @@ export default function Footer() {
             <p className={styles.tagline}>
               Click that converts and Revenue that grows. Your growth-focused marketing and commerce partner.
             </p>
+            <div className={styles.partnerBadges} style={{ display: 'flex', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
+              <span style={{ fontSize: 'var(--fs-xs)', color: 'var(--text-secondary)', fontWeight: 600, border: '1px solid var(--border-default)', padding: '4px 8px', borderRadius: '4px' }}>Meta Business Partner</span>
+              <span style={{ fontSize: 'var(--fs-xs)', color: 'var(--text-secondary)', fontWeight: 600, border: '1px solid var(--border-default)', padding: '4px 8px', borderRadius: '4px' }}>Google Partner</span>
+            </div>
             <div className={styles.socials}>
               <a href="https://linkedin.com/company/clickrevenue" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn">
                 <LinkedinIcon size={18} />
@@ -109,9 +113,9 @@ export default function Footer() {
             © {new Date().getFullYear()} ClickRevenue. All rights reserved.
           </p>
           <div className={styles.bottomLinks}>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Cookie Policy</a>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+            <Link href="/cookies">Cookie Policy</Link>
           </div>
         </div>
       </div>

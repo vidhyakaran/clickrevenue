@@ -13,10 +13,11 @@ import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import StatsCounter from '@/components/StatsCounter/StatsCounter';
 import CTASection from '@/components/CTASection/CTASection';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
+import LogoWall from '@/components/LogoWall/LogoWall';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import FAQBlock from '@/components/FAQBlock/FAQBlock';
 
-import HeroScene from '@/components/HeroScene/HeroScene';
+import HeroAnimation from '@/components/HeroAnimation/HeroAnimation';
 import GrowthChart from '@/components/SleekGraphics/GrowthChart';
 import PlatformUI from '@/components/SleekGraphics/PlatformUI';
 import MetricCard from '@/components/SleekGraphics/MetricCard';
@@ -71,25 +72,11 @@ const whyReasons = [
 const caseStudies = [
   {
     icon: ShoppingBag,
-    tag: 'Marketplace',
-    title: 'NatureFresh Foods',
-    desc: '[TODO: Insert real case study description]',
-    metrics: [{ value: '[TODO]', label: 'Metric 1' }, { value: '[TODO]', label: 'Metric 2' }],
-  },
-  {
-    icon: Zap,
-    tag: 'Quick Commerce',
-    title: 'StyleCraft D2C',
-    desc: '[TODO: Insert real case study description]',
-    metrics: [{ value: '[TODO]', label: 'Metric 1' }, { value: '[TODO]', label: 'Metric 2' }],
-  },
-  {
-    icon: Target,
-    tag: 'Performance Marketing',
-    title: 'FitLife Nutrition',
-    desc: '[TODO: Insert real case study description]',
-    metrics: [{ value: '[TODO]', label: 'Metric 1' }, { value: '[TODO]', label: 'Metric 2' }],
-  },
+    tag: 'D2C Food Brand',
+    title: 'Scaling D2C Growth',
+    desc: 'Anonymized D2C Food Brand achieved massive scale through precision targeting and marketplace optimization.',
+    metrics: [{ value: '₹1.2Cr', label: 'Revenue in 90 Days' }, { value: '45%', label: 'ROAS Improvement' }],
+  }
 ];
 
 export default function Home() {
@@ -140,7 +127,6 @@ export default function Home() {
       />
       {/* ========== HERO ========== */}
       <section className={styles.hero}>
-        <HeroScene />
         <div className={styles.heroOverlay} />
 
         <div className={`container ${styles.heroContainer}`}>
@@ -151,28 +137,22 @@ export default function Home() {
             </h1>
 
             <p className={styles.heroSubtitle}>
-              Scale customer acquisition, revenue, and digital distribution across Ads,
-              Marketplaces, and Quick Commerce with India&apos;s fastest-growing growth partner.
+              India's performance-first growth partner for Ads, Marketplaces & Quick Commerce.
             </p>
 
             <div className={styles.heroButtons}>
               <Link href="/contact" className="btn btn-primary">
-                Book a Consultation <ArrowRight size={18} />
+                Book a Free Audit <ArrowRight size={18} />
               </Link>
-              <Link href="#growth-audit" className="btn btn-outline">
-                Get Free Growth Audit
+              <Link href="#case-studies" className="btn btn-outline">
+                See Our Work
               </Link>
             </div>
           </div>
 
-          <div className={styles.heroVisual}>
-            <PlatformUI />
+          <div className={styles.heroVisual} style={{ height: '500px', position: 'relative' }}>
+            <HeroAnimation />
           </div>
-        </div>
-
-        <div className={styles.heroScroll}>
-          <span>Scroll to explore</span>
-          <div className={styles.scrollLine} />
         </div>
       </section>
 
@@ -189,8 +169,8 @@ export default function Home() {
           <ScrollReveal>
             <SectionHeading
               label="What We Do"
-              title="Comprehensive Growth"
-              titleHighlight="Services"
+              title="One Click."
+              titleHighlight="Full-Funnel Growth."
               subtitle="From performance marketing to quick commerce, we provide end-to-end growth solutions for brands at every stage."
             />
           </ScrollReveal>
@@ -420,19 +400,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== TESTIMONIALS ========== */}
+      {/* ========== CLIENT WORK ========== */}
       <section className={styles.testimonialsSection}>
         <div className="container">
           <ScrollReveal>
             <SectionHeading
-              label="Client Love"
-              title="What Our Clients"
-              titleHighlight="Say"
-              subtitle="Trusted by 500+ brands across industries."
+              label="Our Network"
+              title="Brands We"
+              titleHighlight="Accelerate"
+              subtitle="Partnering with ambitious brands across D2C, FMCG, and Retail."
             />
           </ScrollReveal>
-          <TestimonialSlider />
         </div>
+        <LogoWall />
       </section>
 
       {/* ========== FAQ ========== */}
