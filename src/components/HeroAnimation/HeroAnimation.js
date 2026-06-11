@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { MousePointer2, TrendingUp, DollarSign } from 'lucide-react';
 import styles from './HeroAnimation.module.css';
-import HeroBackground from '../Hero3D/HeroBackground';
 
 export default function HeroAnimation() {
   const [stage, setStage] = useState('initial'); // initial, moving, clicking, revealing, counting
@@ -49,8 +48,7 @@ export default function HeroAnimation() {
 
   return (
     <div className={styles.container}>
-      {/* 3D Cinematic Background */}
-      <HeroBackground />
+      {/* 3D background is now global in layout.js */}
 
       {/* The Revenue Dashboard (Hidden initially, revealed after click) */}
       <div className={`${styles.dashboard} ${stage === 'revealing' || stage === 'counting' ? styles.dashboardVisible : ''}`}>

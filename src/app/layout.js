@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import Global3DBackground from '@/components/Global3DBackground/Global3DBackground';
 
 export const metadata = {
   title: 'ClickRevenue — Click that Converts and Revenue that Grows',
@@ -54,8 +55,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <Global3DBackground />
         <Navbar />
-        <main style={{ minHeight: '100vh' }}>
+        <main style={{ minHeight: '100vh', position: 'relative', zIndex: 1 }}>
           {children}
         </main>
         <Footer />
