@@ -55,7 +55,7 @@ export default function AboutPage() {
             <div>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
-                background: 'rgba(0, 245, 212, 0.08)', border: '1px solid rgba(0, 245, 212, 0.2)',
+                background: 'rgba(227, 27, 35, 0.08)', border: '1px solid rgba(227, 27, 35, 0.2)',
                 borderRadius: 'var(--radius-full)', padding: '8px 20px',
                 fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
                 marginBottom: 'var(--space-xl)',
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 position: 'absolute',
                 top: '-50%', left: '-50%',
                 width: '200%', height: '200%',
-                background: 'conic-gradient(from 0deg, transparent, rgba(0, 245, 212, 0.1), transparent, transparent)',
+                background: 'conic-gradient(from 0deg, transparent, rgba(227, 27, 35, 0.1), transparent, transparent)',
                 animation: 'rotate 10s linear infinite',
               }} />
               <div style={{ position: 'relative', zIndex: 1 }}>
@@ -147,7 +147,7 @@ export default function AboutPage() {
               <div key={i} className="glow-card" style={{ padding: 'var(--space-2xl)' }}>
                 <div style={{
                   width: 48, height: 48, borderRadius: 'var(--radius-md)',
-                  background: 'rgba(0, 245, 212, 0.08)', display: 'flex',
+                  background: 'rgba(227, 27, 35, 0.08)', display: 'flex',
                   alignItems: 'center', justifyContent: 'center',
                   color: 'var(--neon-cyan)', marginBottom: 'var(--space-md)',
                 }}>

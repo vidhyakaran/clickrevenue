@@ -107,7 +107,7 @@ function JobCard({ job, index }) {
           <div style={{ flex: 1 }}>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: 'var(--space-sm)' }}>
               <span style={{
-                background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.2)',
+                background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.2)',
                 borderRadius: 'var(--radius-full)', padding: '4px 12px',
                 fontSize: 'var(--fs-xs)', color: 'var(--neon-cyan)', fontWeight: 600,
               }}>{job.department}</span>
@@ -199,14 +199,14 @@ export default function CareersPage() {
         <div style={{
           position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
           width: '600px', height: '300px',
-          background: 'radial-gradient(ellipse, rgba(0, 245, 212, 0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(227, 27, 35, 0.08) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
         <div className="container" style={{ textAlign: 'center', position: 'relative' }}>
           <ScrollReveal>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.3)',
+              background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
               borderRadius: 'var(--radius-full)', padding: '8px 20px',
               fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
               marginBottom: 'var(--space-xl)',
@@ -251,7 +251,7 @@ export default function CareersPage() {
                 <div className="glow-card" style={{ padding: 'var(--space-2xl)' }}>
                   <div style={{
                     width: 48, height: 48, borderRadius: 'var(--radius-md)',
-                    background: 'rgba(0, 245, 212, 0.1)', display: 'flex',
+                    background: 'rgba(227, 27, 35, 0.1)', display: 'flex',
                     alignItems: 'center', justifyContent: 'center',
                     color: 'var(--neon-cyan)', marginBottom: 'var(--space-md)',
                   }}>
@@ -284,7 +284,7 @@ export default function CareersPage() {
               <div>
                 <div style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.3)',
+                  background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
                   borderRadius: 'var(--radius-full)', padding: '6px 16px',
                   fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
                   marginBottom: 'var(--space-lg)',
@@ -379,7 +379,7 @@ export default function CareersPage() {
           <ScrollReveal delay={150}>
             {submitted ? (
               <div style={{
-                background: 'rgba(0, 245, 212, 0.08)', border: '1px solid rgba(0, 245, 212, 0.3)',
+                background: 'rgba(227, 27, 35, 0.08)', border: '1px solid rgba(227, 27, 35, 0.3)',
                 borderRadius: 'var(--radius-xl)', padding: 'var(--space-3xl)', textAlign: 'center',
               }}>
                 <CheckCircle size={48} style={{ color: 'var(--neon-cyan)', margin: '0 auto var(--space-lg)' }} />

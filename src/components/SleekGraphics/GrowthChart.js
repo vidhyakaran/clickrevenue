@@ -28,7 +28,7 @@ export default function GrowthChart() {
       {/* Background Glow */}
       <div style={{
         position: 'absolute', top: '-50%', left: '-50%', width: '200%', height: '200%',
-        background: 'radial-gradient(circle at 50% 50%, rgba(0, 245, 212, 0.1), transparent 60%)',
+        background: 'radial-gradient(circle at 50% 50%, rgba(227, 27, 35, 0.1), transparent 60%)',
         animation: 'rotate 20s linear infinite',
         pointerEvents: 'none'
       }} />

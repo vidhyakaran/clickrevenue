@@ -36,7 +36,7 @@ export default function IndustriesPage() {
         <div className="container" style={{ textAlign: 'center' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(0, 245, 212, 0.08)', border: '1px solid rgba(0, 245, 212, 0.2)',
+            background: 'rgba(227, 27, 35, 0.08)', border: '1px solid rgba(227, 27, 35, 0.2)',
             borderRadius: 'var(--radius-full)', padding: '8px 20px',
             fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
             marginBottom: 'var(--space-xl)',

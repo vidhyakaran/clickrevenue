@@ -8,21 +8,53 @@
 
 /* --- CSS Custom Properties --- */
 :root {
-  /* ★ Electric Performance Palette ★ */
+  /* ★ ClickRevenue Brand Palette (from logo) ★ */
   --bg-primary: #0A0A0F;
   --bg-surface: #111118;
   --bg-card: #16161F;
-  --accent-primary: #00FF88;
-  --accent-primary-hover: #33FF9F;
-  --accent-glow: rgba(0, 255, 136, 0.15);
-  --accent-glow-strong: rgba(0, 255, 136, 0.4);
-  
+  --accent-primary: #E31B23;
+  --accent-primary-hover: #FF3A42;
+  --accent-glow: rgba(227, 27, 35, 0.15);
+  --accent-glow-strong: rgba(227, 27, 35, 0.4);
+
   --text-primary: #F0F0F5;
   --text-secondary: #8888AA;
   --text-muted: #555566;
-  
+
   --border-default: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(0, 255, 136, 0.3);
+  --border-accent: rgba(227, 27, 35, 0.3);
+
+  /* Legacy aliases — so old var() references still resolve */
+  --cr-red: #E31B23;
+  --cr-red-light: #FF3A42;
+  --cr-red-dark: #B81419;
+  --neon-cyan: #E31B23;
+  --neon-purple: #B81419;
+  --neon-pink: #FF3A42;
+  --glow-cyan: rgba(227, 27, 35, 0.4);
+  --glow-purple: rgba(184, 20, 25, 0.4);
+  --glow-cyan-strong: rgba(227, 27, 35, 0.7);
+  --glow-purple-strong: rgba(184, 20, 25, 0.7);
+  --gradient-neon: linear-gradient(135deg, #E31B23, #FF3A42);
+  --gradient-neon-reverse: linear-gradient(135deg, #FF3A42, #E31B23);
+  --gradient-neon-wide: linear-gradient(135deg, #B81419, #E31B23, #FF3A42, #E31B23, #B81419);
+  --gradient-hero: linear-gradient(135deg, #E31B23 0%, #FF3A42 50%, #B81419 100%);
+  --cr-black: #060608;
+  --cr-bg: #0A0A0F;
+  --cr-surface: rgba(18, 18, 28, 0.6);
+  --cr-surface-solid: #12121C;
+  --cr-surface-light: rgba(26, 26, 40, 0.7);
+  --cr-surface-lighter: rgba(34, 34, 52, 0.6);
+  --cr-border: rgba(255, 255, 255, 0.06);
+  --cr-border-light: rgba(255, 255, 255, 0.1);
+  --cr-border-hover: rgba(255, 255, 255, 0.15);
+  --cr-white: #FFFFFF;
+  --cr-grey-100: #F5F5F7;
+  --cr-grey-200: #E0E0E6;
+  --cr-grey-300: #B0B0C0;
+  --cr-grey-400: #808094;
+  --cr-grey-500: #555566;
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Typography */
   --font-display: 'Space Grotesk', sans-serif;
@@ -69,6 +101,9 @@
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
   --shadow-accent: 0 4px 24px var(--accent-glow);
   --shadow-accent-strong: 0 8px 40px var(--accent-glow-strong);
+  --shadow-neon: 0 4px 30px var(--glow-cyan), 0 0 60px var(--glow-purple);
+  --shadow-neon-strong: 0 8px 50px var(--glow-cyan-strong), 0 0 80px var(--glow-purple);
+  --shadow-glow: 0 0 40px rgba(227, 27, 35, 0.15), 0 0 80px rgba(184, 20, 25, 0.08);
 
   /* Transitions */
   --transition-fast: 150ms ease;
@@ -127,8 +162,8 @@ body::after {
   width: 100%;
   height: 100%;
   background:
-    radial-gradient(ellipse 600px 600px at 15% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 400px at 85% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 70%);
+    radial-gradient(ellipse 600px 600px at 15% 20%, rgba(227, 27, 35, 0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 400px at 85% 80%, rgba(227, 27, 35, 0.03) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
   animation: ambientShift 20s ease-in-out infinite alternate;
@@ -248,7 +283,7 @@ a:hover {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(0, 245, 212, 0), rgba(0, 245, 212, 0.4), rgba(123, 47, 255, 0.4), rgba(123, 47, 255, 0));
+  background: linear-gradient(135deg, rgba(227, 27, 35, 0), rgba(227, 27, 35, 0.4), rgba(184, 20, 25, 0.4), rgba(227, 27, 35, 0));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -259,7 +294,7 @@ a:hover {
 
 .glow-card:hover {
   border-color: transparent;
-  box-shadow: 0 8px 40px rgba(0, 245, 212, 0.1), 0 0 60px rgba(123, 47, 255, 0.08);
+  box-shadow: 0 8px 40px rgba(227, 27, 35, 0.1), 0 0 60px rgba(184, 20, 25, 0.08);
   transform: translateY(-6px);
 }
 
@@ -320,12 +355,12 @@ a:hover {
 
 .btn-ghost {
   background: transparent;
-  color: var(--neon-cyan);
+  color: var(--accent-primary);
   padding: 10px 20px;
 }
 
 .btn-ghost:hover {
-  background: rgba(0, 245, 212, 0.08);
+  background: rgba(227, 27, 35, 0.08);
 }
 
 /* --- Keyframe Animations --- */
@@ -369,10 +404,10 @@ a:hover {
 
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 8px var(--glow-cyan), 0 0 20px rgba(0, 245, 212, 0.2);
+    box-shadow: 0 0 8px rgba(227, 27, 35, 0.4), 0 0 20px rgba(227, 27, 35, 0.2);
   }
   50% {
-    box-shadow: 0 0 16px var(--glow-cyan-strong), 0 0 40px rgba(123, 47, 255, 0.3);
+    box-shadow: 0 0 16px rgba(227, 27, 35, 0.7), 0 0 40px rgba(184, 20, 25, 0.3);
   }
 }
 
@@ -448,10 +483,10 @@ a:hover {
 
 @keyframes borderGlow {
   0%, 100% {
-    border-color: rgba(0, 245, 212, 0.15);
+    border-color: rgba(227, 27, 35, 0.15);
   }
   50% {
-    border-color: rgba(123, 47, 255, 0.35);
+    border-color: rgba(255, 58, 66, 0.35);
   }
 }
 
@@ -492,7 +527,7 @@ a:hover {
 .section-separator {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0, 245, 212, 0.3) 20%, var(--neon-cyan) 35%, var(--neon-purple) 65%, rgba(123, 47, 255, 0.3) 80%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(227, 27, 35, 0.3) 20%, var(--accent-primary) 35%, var(--accent-primary-hover) 65%, rgba(255, 58, 66, 0.3) 80%, transparent);
   margin: 0;
 }
 
@@ -513,8 +548,8 @@ a:hover {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-lg);
-  background: rgba(0, 245, 212, 0.08);
-  border: 1px solid rgba(0, 245, 212, 0.15);
+  background: rgba(227, 27, 35, 0.08);
+  border: 1px solid rgba(227, 27, 35, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -524,8 +559,8 @@ a:hover {
 
 .neon-icon:hover,
 .glow-card:hover .neon-icon {
-  background: rgba(0, 245, 212, 0.15);
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+  background: rgba(227, 27, 35, 0.15);
+  box-shadow: 0 0 20px rgba(227, 27, 35, 0.2);
 }
 
 /* ★ Neon tag/badge utility ★ */
@@ -533,8 +568,8 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 245, 212, 0.08);
-  border: 1px solid rgba(0, 245, 212, 0.2);
+  background: rgba(227, 27, 35, 0.08);
+  border: 1px solid rgba(227, 27, 35, 0.2);
   border-radius: var(--radius-full);
   padding: 8px 20px;
   font-size: var(--fs-sm);
@@ -551,7 +586,7 @@ a:hover {
 
 .platform-3d-card:hover {
   transform: rotateX(5deg) rotateY(-10deg) rotateZ(2deg) scale(1) translateY(-10px) !important;
-  box-shadow: -10px 20px 40px rgba(0, 245, 212, 0.15), 0 0 60px rgba(123, 47, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+  box-shadow: -10px 20px 40px rgba(227, 27, 35, 0.15), 0 0 60px rgba(184, 20, 25, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
 }
 
 /* --- Responsive --- */
@@ -603,13 +638,13 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-cyan-light);
+  background: var(--accent-primary-hover);
 }
 
 /* Selection */
 ::selection {
-  background: var(--neon-cyan);
-  color: var(--cr-black);
+  background: var(--accent-primary);
+  color: var(--cr-white);
 }
 
 /* Page Responsive Layout Utilities */

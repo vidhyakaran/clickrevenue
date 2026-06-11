@@ -110,7 +110,7 @@ export default function CaseStudiesPage() {
         <div className="container" style={{ textAlign: 'center' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.3)',
+            background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
             borderRadius: 'var(--radius-full)', padding: '8px 20px',
             fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
             marginBottom: 'var(--space-xl)',
@@ -155,7 +155,7 @@ export default function CaseStudiesPage() {
                   </div>
                   <div>
                     <span style={{
-                      background: 'rgba(0, 245, 212, 0.1)', color: 'var(--neon-cyan)',
+                      background: 'rgba(227, 27, 35, 0.1)', color: 'var(--neon-cyan)',
                       fontSize: 'var(--fs-xs)', fontWeight: 600,
                       padding: '3px 10px', borderRadius: 'var(--radius-full)',
                     }}>{cs.tag}</span>

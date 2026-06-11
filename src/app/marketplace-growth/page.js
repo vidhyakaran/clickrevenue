@@ -37,14 +37,14 @@ export default function MarketplaceGrowthPage() {
         paddingBottom: 'var(--space-4xl)',
         position: 'relative',
         zIndex: 1,
-        background: 'linear-gradient(180deg, rgba(0, 245, 212, 0.05) 0%, transparent 100%)',
+        background: 'linear-gradient(180deg, rgba(227, 27, 35, 0.05) 0%, transparent 100%)',
       }}>
         <div className="container">
           <div className="marketplace-pipeline-grid">
             <div>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
-                background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.3)',
+                background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
                 borderRadius: 'var(--radius-full)', padding: '8px 20px',
                 fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
                 marginBottom: 'var(--space-xl)',
@@ -119,7 +119,7 @@ export default function MarketplaceGrowthPage() {
               <div key={i} className="glow-card" style={{ padding: 'var(--space-2xl)' }}>
                 <div style={{
                   width: 48, height: 48, borderRadius: 'var(--radius-md)',
-                  background: 'rgba(0, 245, 212, 0.1)', display: 'flex',
+                  background: 'rgba(227, 27, 35, 0.1)', display: 'flex',
                   alignItems: 'center', justifyContent: 'center',
                   color: 'var(--neon-cyan)', marginBottom: 'var(--space-md)',
                 }}>
@@ -155,7 +155,7 @@ export default function MarketplaceGrowthPage() {
               }}>
                 <div style={{
                   width: 64, height: 64, borderRadius: 'var(--radius-full)',
-                  background: 'rgba(0, 245, 212, 0.15)', border: '2px solid var(--neon-cyan)',
+                  background: 'rgba(227, 27, 35, 0.15)', border: '2px solid var(--neon-cyan)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontFamily: 'var(--font-display)', fontSize: 'var(--fs-xl)',
                   fontWeight: 800, color: 'var(--neon-cyan)',

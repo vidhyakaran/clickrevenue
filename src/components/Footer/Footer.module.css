@@ -124,7 +124,7 @@
 
 .newsletterInput:focus {
   border-color: var(--neon-cyan);
-  box-shadow: 0 0 15px rgba(0, 245, 212, 0.1);
+  box-shadow: 0 0 15px rgba(227, 27, 35, 0.1);
 }
 
 .newsletterBtn {

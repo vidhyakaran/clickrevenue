@@ -335,8 +335,8 @@ export default function Home() {
                       {['Ads', 'SEO', 'Marketplaces', 'Quick Commerce'].map((item) => (
                         <span key={item} style={{
                           padding: '6px 16px',
-                          background: 'rgba(0, 245, 212, 0.08)',
-                          border: '1px solid rgba(0, 245, 212, 0.2)',
+                          background: 'rgba(227, 27, 35, 0.08)',
+                          border: '1px solid rgba(227, 27, 35, 0.2)',
                           borderRadius: 'var(--radius-full)',
                           color: 'var(--neon-cyan)',
                           fontSize: 'var(--fs-xs)',

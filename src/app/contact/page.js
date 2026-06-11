@@ -133,7 +133,7 @@ export default function ContactPage() {
           position: 'absolute', top: '10%', left: '50%',
           transform: 'translateX(-50%)',
           width: '700px', height: '350px',
-          background: 'radial-gradient(ellipse, rgba(0, 245, 212, 0.07) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse, rgba(227, 27, 35, 0.07) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
@@ -141,7 +141,7 @@ export default function ContactPage() {
           <ScrollReveal>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.3)',
+              background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
               borderRadius: 'var(--radius-full)', padding: '8px 20px',
               fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
               marginBottom: 'var(--space-xl)',
@@ -232,7 +232,7 @@ export default function ContactPage() {
                   }}>
                     <div style={{
                       width: 72, height: 72, borderRadius: 'var(--radius-full)',
-                      background: 'rgba(0, 245, 212, 0.1)', border: '2px solid var(--neon-cyan)',
+                      background: 'rgba(227, 27, 35, 0.1)', border: '2px solid var(--neon-cyan)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       margin: '0 auto var(--space-lg)',
                     }}>
@@ -383,7 +383,7 @@ export default function ContactPage() {
                       <div key={i} style={{ display: 'flex', gap: 'var(--space-md)', alignItems: 'flex-start' }}>
                         <div style={{
                           width: 36, height: 36, borderRadius: 'var(--radius-full)',
-                          background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.3)',
+                          background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
                           fontFamily: 'var(--font-display)', fontSize: 'var(--fs-xs)',
                           fontWeight: 800, color: 'var(--neon-cyan)', flexShrink: 0,
@@ -450,8 +450,8 @@ export default function ContactPage() {
 
                 {/* Quick Response Badge */}
                 <div style={{
-                  background: 'linear-gradient(135deg, rgba(0, 245, 212, 0.15), rgba(0, 245, 212, 0.05))',
-                  border: '1px solid rgba(0, 245, 212, 0.3)',
+                  background: 'linear-gradient(135deg, rgba(227, 27, 35, 0.15), rgba(227, 27, 35, 0.05))',
+                  border: '1px solid rgba(227, 27, 35, 0.3)',
                   borderRadius: 'var(--radius-xl)',
                   padding: 'var(--space-xl)',
                   textAlign: 'center',
@@ -496,7 +496,7 @@ function InfoCard({ info }) {
     <>
       <div style={{
         width: 44, height: 44, borderRadius: 'var(--radius-md)',
-        background: 'rgba(0, 245, 212, 0.1)', border: '1px solid rgba(0, 245, 212, 0.2)',
+        background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.2)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         color: 'var(--neon-cyan)', marginBottom: 'var(--space-md)',
       }}>

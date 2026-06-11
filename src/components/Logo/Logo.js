@@ -16,15 +16,15 @@ export default function Logo({ height = 32, className = '' }) {
       className={className}
       style={{ display: 'inline-block', verticalAlign: 'middle', overflow: 'visible' }}
     >
-      {/* Neon gradient definition */}
+      {/* Brand red gradient definition */}
       <defs>
         <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#00F5D4" />
-          <stop offset="100%" stopColor="#7B2FFF" />
+          <stop offset="0%" stopColor="#E31B23" />
+          <stop offset="100%" stopColor="#FF3A42" />
         </linearGradient>
         <linearGradient id="neonGradVert" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#00F5D4" />
-          <stop offset="100%" stopColor="#7B2FFF" />
+          <stop offset="0%" stopColor="#E31B23" />
+          <stop offset="100%" stopColor="#FF3A42" />
         </linearGradient>
       </defs>
 
@@ -115,14 +115,14 @@ export default function Logo({ height = 32, className = '' }) {
         lick
       </text>
 
-      {/* The 'Revenue' portion — neon gradient ★ */}
+      {/* The 'Revenue' portion — brand red */}
       <text
         x="152"
         y="62"
         fontFamily="var(--font-display)"
         fontSize="56"
         fontWeight="800"
-        fill="url(#neonGrad)"
+        fill="#E31B23"
         letterSpacing="-1"
       >
         Revenue

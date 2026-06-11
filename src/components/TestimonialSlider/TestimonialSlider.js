@@ -76,7 +76,7 @@ export default function TestimonialSlider() {
             <Quote
               size={36}
               style={{
-                background: 'linear-gradient(135deg, #00F5D4, #7B2FFF)',
+                background: 'linear-gradient(135deg, #E31B23, #FF3A42)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 opacity: 0.6,
@@ -127,11 +127,11 @@ export default function TestimonialSlider() {
               width: i === current ? '24px' : '8px',
               height: '8px',
               borderRadius: '4px',
-              background: i === current ? 'linear-gradient(90deg, #00F5D4, #7B2FFF)' : 'var(--cr-border-light)',
+              background: i === current ? 'linear-gradient(90deg, #E31B23, #FF3A42)' : 'var(--cr-border-light)',
               border: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
-              boxShadow: i === current ? '0 0 10px rgba(0, 245, 212, 0.4)' : 'none',
+              boxShadow: i === current ? '0 0 10px rgba(227, 27, 35, 0.4)' : 'none',
             }}
             aria-label={`Go to testimonial ${i + 1}`}
           />
