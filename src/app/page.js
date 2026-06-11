@@ -15,6 +15,7 @@ import CTASection from '@/components/CTASection/CTASection';
 import TestimonialSlider from '@/components/TestimonialSlider/TestimonialSlider';
 import LogoWall from '@/components/LogoWall/LogoWall';
 import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import TiltCard from '@/components/TiltCard/TiltCard';
 import FAQBlock from '@/components/FAQBlock/FAQBlock';
 
 import HeroAnimation from '@/components/HeroAnimation/HeroAnimation';
@@ -179,7 +180,7 @@ export default function Home() {
             <div className={styles.verticalTrack} />
             
             {/* Service 1 */}
-            <div className={styles.linearRow}>
+            <TiltCard className={styles.linearRow}>
               <ScrollReveal direction="left">
                 <div className={styles.linearContent}>
                   <h2 className={styles.heroTitle} style={{ fontSize: 'var(--fs-3xl)', marginBottom: 'var(--space-md)' }}>
@@ -208,10 +209,10 @@ export default function Home() {
                   <GrowthChart />
                 </div>
               </ScrollReveal>
-            </div>
+            </TiltCard>
 
             {/* Service 2 */}
-            <div className={`${styles.linearRow} ${styles.reverse}`}>
+            <TiltCard className={`${styles.linearRow} ${styles.reverse}`}>
               <ScrollReveal direction="left">
                 <div className={styles.linearVisual}>
                   <PlatformUI />
@@ -240,10 +241,10 @@ export default function Home() {
                   </Link>
                 </div>
               </ScrollReveal>
-            </div>
+            </TiltCard>
 
             {/* Service 3 */}
-            <div className={styles.linearRow}>
+            <TiltCard className={styles.linearRow}>
               <ScrollReveal direction="left">
                 <div className={styles.linearContent}>
                   <h2 className={styles.heroTitle} style={{ fontSize: 'var(--fs-3xl)', marginBottom: 'var(--space-md)' }}>
@@ -272,7 +273,7 @@ export default function Home() {
                   <MetricCard />
                 </div>
               </ScrollReveal>
-            </div>
+            </TiltCard>
           </div>
         </div>
       </section>
@@ -310,9 +311,9 @@ export default function Home() {
 
             <ScrollReveal direction="right">
               <div className={styles.whyVisual}>
-                <div className={styles.whyCard}>
+                <TiltCard className={styles.whyCard}>
                   <div className={styles.whyCardInner}>
-                    <MousePointerClick size={48} style={{ color: 'var(--neon-cyan)', marginBottom: '16px' }} />
+                    <MousePointerClick size={48} style={{ color: 'var(--accent-primary)', marginBottom: '16px' }} />
                     <h3 className={styles.whyCardTitle}>
                       <span style={{ color: 'var(--cr-white)' }}>Click</span>
                       <span style={{ 
@@ -347,7 +348,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </TiltCard>
               </div>
             </ScrollReveal>
           </div>
@@ -369,7 +370,7 @@ export default function Home() {
           <div className={styles.caseGrid}>
             {caseStudies.map((cs, i) => (
               <ScrollReveal key={i} delay={i * 150}>
-                <div className={styles.caseCard}>
+                <TiltCard className={styles.caseCard}>
                   <div className={styles.caseImage}>
                     <div className="neon-icon" style={{ width: 80, height: 80, borderRadius: 'var(--radius-full)' }}>
                       <cs.icon size={36} />
@@ -387,7 +388,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </div>
+                </TiltCard>
               </ScrollReveal>
             ))}
           </div>
