@@ -18,11 +18,11 @@ import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
 import TiltCard from '@/components/TiltCard/TiltCard';
 import FAQBlock from '@/components/FAQBlock/FAQBlock';
 
-import HeroAnimation from '@/components/HeroAnimation/HeroAnimation';
 import DynamicEntrance from '@/components/DynamicEntrance/DynamicEntrance';
 import GrowthChart from '@/components/SleekGraphics/GrowthChart';
 import PlatformUI from '@/components/SleekGraphics/PlatformUI';
 import MetricCard from '@/components/SleekGraphics/MetricCard';
+import HeroScene from '@/components/HeroScene/HeroScene';
 
 const services = [
   {
@@ -130,6 +130,9 @@ export default function Home() {
       <DynamicEntrance>
         {/* ========== HERO ========== */}
         <section className={styles.hero}>
+          <div className={styles.heroSceneWrapper}>
+            <HeroScene />
+          </div>
           <div className={styles.heroOverlay} />
 
           <div className={`container ${styles.heroContainer}`}>
@@ -151,11 +154,6 @@ export default function Home() {
                   See Our Work
                 </Link>
               </div>
-            </div>
-            
-            {/* Kept HeroAnimation to avoid layout shifts if it has other effects, but its logic might be redundant. Will leave it for now. */}
-            <div className={styles.heroVisual} style={{ height: '500px', position: 'relative' }}>
-              <HeroAnimation />
             </div>
           </div>
         </section>
@@ -419,6 +417,8 @@ export default function Home() {
         </div>
         <LogoWall />
       </section>
+
+      {/* Testimonials hidden until real data is added */}
 
       {/* ========== FAQ ========== */}
       <FAQBlock />

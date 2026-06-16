@@ -32,6 +32,8 @@ const testimonials = [
 
 export default function TestimonialSlider() {
   const [current, setCurrent] = useState(0);
+  
+  const hasRealData = testimonials.some(t => !t.quote.includes('[TODO'));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,6 +41,8 @@ export default function TestimonialSlider() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  if (!hasRealData) return null;
 
   return (
     <div style={{

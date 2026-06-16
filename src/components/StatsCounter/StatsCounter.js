@@ -101,10 +101,9 @@ function CounterCard({ stat, inView }) {
       background: 'rgba(16, 16, 24, 0.45)',
       backdropFilter: 'blur(16px)',
       WebkitBackdropFilter: 'blur(16px)',
-      border: '1px solid rgba(255, 255, 255, 0.06)',
+      border: '1px solid var(--border-default)',
       borderRadius: 'var(--radius-xl)',
       transition: 'all var(--transition-spring)',
-      transformStyle: 'preserve-3d',
     }}
     className="stat-card"
     >
@@ -131,9 +130,9 @@ function CounterCard({ stat, inView }) {
       </span>
       <style jsx>{`
         .stat-card:hover {
-          transform: perspective(1000px) rotateX(10deg) rotateY(-10deg) rotateZ(2deg) scale(1.05) translateY(-10px);
-          box-shadow: var(--shadow-accent-strong);
-          border-color: var(--accent-primary);
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-accent);
+          border-color: var(--border-accent);
           z-index: 10;
         }
       `}</style>
