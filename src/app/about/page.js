@@ -83,8 +83,10 @@ export default function AboutPage() {
               </p>
             </div>
             <div style={{
-              background: 'var(--cr-surface)',
-              border: '1px solid var(--cr-border)',
+              background: 'rgba(16, 16, 24, 0.45)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255, 255, 255, 0.06)',
               borderRadius: 'var(--radius-2xl)',
               padding: 'var(--space-3xl)',
               textAlign: 'center',
@@ -167,7 +169,13 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="section" style={{ background: 'var(--cr-surface)' }}>
+      <section className="section" style={{
+        background: 'rgba(16, 16, 24, 0.3)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
+      }}>
         <div className="container">
           <SectionHeading
             label="Our Journey"
@@ -180,8 +188,12 @@ export default function AboutPage() {
               <div key={i} style={{
                 padding: 'var(--space-2xl)',
                 borderLeft: '3px solid var(--neon-cyan)',
-                background: 'var(--cr-surface-lighter)',
+                background: 'rgba(16, 16, 24, 0.45)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
                 borderRadius: '0 var(--radius-lg) var(--radius-lg) 0',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
+                borderLeftWidth: '3px',
               }}>
                 <div style={{
                   fontFamily: 'var(--font-display)', fontSize: 'var(--fs-2xl)',

@@ -19,6 +19,7 @@ import TiltCard from '@/components/TiltCard/TiltCard';
 import FAQBlock from '@/components/FAQBlock/FAQBlock';
 
 import HeroAnimation from '@/components/HeroAnimation/HeroAnimation';
+import DynamicEntrance from '@/components/DynamicEntrance/DynamicEntrance';
 import GrowthChart from '@/components/SleekGraphics/GrowthChart';
 import PlatformUI from '@/components/SleekGraphics/PlatformUI';
 import MetricCard from '@/components/SleekGraphics/MetricCard';
@@ -126,43 +127,46 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      {/* ========== HERO ========== */}
-      <section className={styles.hero}>
-        <div className={styles.heroOverlay} />
+      <DynamicEntrance>
+        {/* ========== HERO ========== */}
+        <section className={styles.hero}>
+          <div className={styles.heroOverlay} />
 
-        <div className={`container ${styles.heroContainer}`}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
-              Click that Converts.<br />
-              <span className={styles.heroTitleRed}>Revenue</span> that Grows.
-            </h1>
+          <div className={`container ${styles.heroContainer}`}>
+            <div className={styles.heroContent}>
+              <h1 className={styles.heroTitle}>
+                Click that Converts.<br />
+                <span className={styles.heroTitleRed}>Revenue</span> that Grows.
+              </h1>
 
-            <p className={styles.heroSubtitle}>
-              India's performance-first growth partner for Ads, Marketplaces & Quick Commerce.
-            </p>
+              <p className={styles.heroSubtitle}>
+                India's performance-first growth partner for Ads, Marketplaces & Quick Commerce.
+              </p>
 
-            <div className={styles.heroButtons}>
-              <Link href="/contact" className="btn btn-primary">
-                Book a Free Audit <ArrowRight size={18} />
-              </Link>
-              <Link href="#case-studies" className="btn btn-outline">
-                See Our Work
-              </Link>
+              <div className={styles.heroButtons}>
+                <Link href="/contact" className="btn btn-primary">
+                  Book a Free Audit <ArrowRight size={18} />
+                </Link>
+                <Link href="#case-studies" className="btn btn-outline">
+                  See Our Work
+                </Link>
+              </div>
+            </div>
+            
+            {/* Kept HeroAnimation to avoid layout shifts if it has other effects, but its logic might be redundant. Will leave it for now. */}
+            <div className={styles.heroVisual} style={{ height: '500px', position: 'relative' }}>
+              <HeroAnimation />
             </div>
           </div>
+        </section>
 
-          <div className={styles.heroVisual} style={{ height: '500px', position: 'relative' }}>
-            <HeroAnimation />
+        {/* ========== STATS ========== */}
+        <section className={styles.statsSection}>
+          <div className="container">
+            <StatsCounter />
           </div>
-        </div>
-      </section>
-
-      {/* ========== STATS ========== */}
-      <section className={styles.statsSection}>
-        <div className="container">
-          <StatsCounter />
-        </div>
-      </section>
+        </section>
+      </DynamicEntrance>
 
       {/* ========== SERVICES ========== */}
       <section className={styles.servicesSection}>

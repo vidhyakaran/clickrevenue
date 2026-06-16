@@ -1,6 +1,8 @@
 .footer {
-  background: var(--cr-black);
-  border-top: 1px solid var(--cr-border);
+  background: rgba(6, 6, 8, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
   position: relative;
   z-index: 1;
 }

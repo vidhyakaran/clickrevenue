@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, transparent 30%, var(--cr-bg) 80%);
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(10, 10, 15, 0.6) 90%);
   z-index: 1;
   pointer-events: none;
 }
@@ -160,8 +160,10 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  background: var(--bg-card);
-  border: 1px solid var(--border-default);
+  background: rgba(16, 16, 24, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-2xl);
   padding: var(--space-3xl);
   box-shadow: var(--shadow-sm);
@@ -273,7 +275,7 @@
 }
 
 .whyCard {
-  background: rgba(18, 18, 28, 0.5);
+  background: rgba(16, 16, 24, 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -320,8 +322,11 @@
   padding: var(--space-3xl) 0;
   position: relative;
   z-index: 1;
-  border-top: 1px solid var(--cr-border);
-  border-bottom: 1px solid var(--cr-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  background: rgba(10, 10, 15, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Testimonials */
@@ -345,7 +350,7 @@
 }
 
 .caseCard {
-  background: rgba(18, 18, 28, 0.5);
+  background: rgba(16, 16, 24, 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);

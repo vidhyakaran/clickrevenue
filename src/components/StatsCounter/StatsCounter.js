@@ -1,15 +1,11 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import { heroStats } from '@/config/stats';
+import { useEntrance } from '../DynamicEntrance/DynamicEntrance';
 
-const defaultStats = [
-  { value: 50, prefix: '', suffix: '+', label: 'Brands Scaled' },
-  { value: 4.2, prefix: '', suffix: 'x', label: 'Average ROAS', decimals: 1 },
-  { value: 25, prefix: '₹', suffix: 'Cr+', label: 'Revenue Generated' },
-  { value: 12, prefix: '', suffix: '+', label: 'Industry Verticals' },
-];
-
-export default function StatsCounter({ customStats }) {
-  const data = customStats || defaultStats;
+export default function StatsCounter() {
+  // Filter out any stat that has a null value (strict data-integrity rule)
+  const data = heroStats.filter(stat => stat.value !== null);
   const [inView, setInView] = useState(false);
   const sectionRef = useRef(null);
 
@@ -18,7 +14,6 @@ export default function StatsCounter({ customStats }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          // Unobserve once triggered to only animate once
           if (sectionRef.current) observer.unobserve(sectionRef.current);
         }
       },
@@ -45,7 +40,7 @@ export default function StatsCounter({ customStats }) {
       padding: 'var(--space-3xl) 0',
     }}>
       {data.map((stat, i) => (
-        <CounterCard key={i} stat={stat} inView={inView} />
+        <CounterCard key={stat.key || i} stat={stat} inView={inView} />
       ))}
 
       <style jsx>{`
@@ -60,10 +55,18 @@ export default function StatsCounter({ customStats }) {
 }
 
 function CounterCard({ stat, inView }) {
-  const [current, setCurrent] = useState(0);
+  const { stage, hasPlayed } = useEntrance();
+  const [current, setCurrent] = useState(hasPlayed ? stat.value : 0);
 
   useEffect(() => {
-    if (!inView) return;
+    // If it has played already or user prefers reduced motion, snap to final
+    if (hasPlayed || stage === 'settled') {
+      setCurrent(stat.value);
+      return;
+    }
+
+    // Only start counting if it is in view AND the entrance sequence reached 'counting'
+    if (!inView || stage !== 'counting') return;
 
     const duration = 2000;
     const interval = 20;
@@ -82,7 +85,7 @@ function CounterCard({ stat, inView }) {
     }, interval);
 
     return () => clearInterval(counter);
-  }, [inView, stat.value]);
+  }, [inView, stage, hasPlayed, stat.value]);
 
   const displayValue = stat.decimals 
     ? current.toFixed(stat.decimals) 
@@ -95,8 +98,10 @@ function CounterCard({ stat, inView }) {
       alignItems: 'center',
       gap: 'var(--space-sm)',
       padding: 'var(--space-lg)',
-      background: 'var(--bg-card)',
-      border: '1px solid var(--border-default)',
+      background: 'rgba(16, 16, 24, 0.45)',
+      backdropFilter: 'blur(16px)',
+      WebkitBackdropFilter: 'blur(16px)',
+      border: '1px solid rgba(255, 255, 255, 0.06)',
       borderRadius: 'var(--radius-xl)',
       transition: 'all var(--transition-spring)',
       transformStyle: 'preserve-3d',
@@ -133,6 +138,5 @@ function CounterCard({ stat, inView }) {
         }
       `}</style>
     </div>
-
   );
 }

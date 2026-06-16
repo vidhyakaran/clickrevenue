@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.contentWrapper {
+  width: 100%;
+}
+
+.cursorWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ripple {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-cyan, #00FF88);
+  box-shadow: 0 0 20px var(--neon-cyan, #00FF88);
+  pointer-events: none;
+}
+
+.skipBtn {
+  position: absolute;
+  bottom: -40px;
+  right: 0;
+  background: transparent;
+  color: var(--cr-grey-400);
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skipBtn:focus {
+  opacity: 1;
+}

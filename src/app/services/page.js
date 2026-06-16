@@ -127,7 +127,11 @@ export default function ServicesPage() {
           id={service.id}
           style={{
             padding: 'var(--space-4xl) 0',
-            background: idx % 2 === 1 ? 'var(--cr-surface)' : 'transparent',
+            background: idx % 2 === 1 ? 'rgba(16, 16, 24, 0.4)' : 'transparent',
+            backdropFilter: idx % 2 === 1 ? 'blur(16px)' : 'none',
+            WebkitBackdropFilter: idx % 2 === 1 ? 'blur(16px)' : 'none',
+            borderTop: idx % 2 === 1 ? '1px solid rgba(255, 255, 255, 0.04)' : 'none',
+            borderBottom: idx % 2 === 1 ? '1px solid rgba(255, 255, 255, 0.04)' : 'none',
             position: 'relative',
             zIndex: 1,
           }}
@@ -172,8 +176,10 @@ export default function ServicesPage() {
                 }}>
                   {service.items.map((item, i) => (
                     <div key={i} style={{
-                      background: idx % 2 === 1 ? 'var(--cr-surface-lighter)' : 'var(--cr-surface)',
-                      border: '1px solid var(--cr-border)',
+                      background: 'rgba(16, 16, 24, 0.45)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255, 255, 255, 0.06)',
                       borderRadius: 'var(--radius-lg)',
                       padding: 'var(--space-lg)',
                       transition: 'all 0.3s ease',

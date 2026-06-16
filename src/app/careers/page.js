@@ -93,8 +93,10 @@ function JobCard({ job, index }) {
   return (
     <ScrollReveal delay={index * 80}>
       <div style={{
-        background: 'var(--cr-surface)',
-        border: '1px solid var(--cr-border)',
+        background: 'rgba(16, 16, 24, 0.45)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+        border: '1px solid rgba(255, 255, 255, 0.06)',
         borderRadius: 'var(--radius-xl)',
         padding: 'var(--space-2xl)',
         transition: 'all 0.3s ease',
@@ -272,7 +274,13 @@ export default function CareersPage() {
       </section>
 
       {/* Culture */}
-      <section id="culture" className="section" style={{ background: 'var(--cr-surface)' }}>
+      <section id="culture" className="section" style={{
+        background: 'rgba(16, 16, 24, 0.3)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
+      }}>
         <div className="container">
           <div style={{
             display: 'grid',
@@ -322,8 +330,10 @@ export default function CareersPage() {
                   { value: '90%', label: 'Retention Rate' },
                 ].map((stat, i) => (
                   <div key={i} style={{
-                    background: 'var(--cr-surface-lighter)',
-                    border: '1px solid var(--cr-border)',
+                    background: 'rgba(16, 16, 24, 0.45)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(255, 255, 255, 0.06)',
                     borderRadius: 'var(--radius-xl)',
                     padding: 'var(--space-2xl)',
                     textAlign: 'center',
@@ -366,7 +376,13 @@ export default function CareersPage() {
       </section>
 
       {/* Apply Form */}
-      <section className="section" style={{ background: 'var(--cr-surface)' }}>
+      <section className="section" style={{
+        background: 'rgba(16, 16, 24, 0.3)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
+      }}>
         <div className="container" style={{ maxWidth: '680px' }}>
           <ScrollReveal>
             <SectionHeading

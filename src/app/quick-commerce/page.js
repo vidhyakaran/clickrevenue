@@ -37,7 +37,6 @@ export default function QuickCommercePage() {
         paddingBottom: 'var(--space-4xl)',
         position: 'relative',
         zIndex: 1,
-        background: 'linear-gradient(180deg, rgba(227, 27, 35, 0.05) 0%, transparent 100%)',
       }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <div style={{
@@ -75,7 +74,13 @@ export default function QuickCommercePage() {
       </section>
 
       {/* Platforms */}
-      <section className="section" style={{ background: 'var(--cr-surface)' }}>
+      <section className="section" style={{
+        background: 'rgba(16, 16, 24, 0.3)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
+      }}>
         <div className="container">
           <SectionHeading
             label="Platforms We Cover"
@@ -140,8 +145,11 @@ export default function QuickCommercePage() {
 
       {/* Key Metrics */}
       <section className="section" style={{
-        borderTop: '1px solid var(--cr-border)',
-        borderBottom: '1px solid var(--cr-border)',
+        background: 'rgba(16, 16, 24, 0.3)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
       }}>
         <div className="container">
           <div className="grid-4" style={{ textAlign: 'center' }}>

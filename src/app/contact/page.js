@@ -211,8 +211,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <ScrollReveal direction="left">
               <div style={{
-                background: 'var(--cr-surface)',
-                border: '1px solid var(--cr-border)',
+                background: 'rgba(16, 16, 24, 0.45)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
                 borderRadius: 'var(--radius-2xl)',
                 padding: 'var(--space-3xl)',
               }}>
@@ -364,8 +366,10 @@ export default function ContactPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xl)' }}>
                 {/* Why Reach Out */}
                 <div style={{
-                  background: 'var(--cr-surface)',
-                  border: '1px solid var(--cr-border)',
+                  background: 'rgba(16, 16, 24, 0.45)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
                   borderRadius: 'var(--radius-xl)',
                   padding: 'var(--space-2xl)',
                 }}>
@@ -404,8 +408,10 @@ export default function ContactPage() {
 
                 {/* Social Links */}
                 <div style={{
-                  background: 'var(--cr-surface)',
-                  border: '1px solid var(--cr-border)',
+                  background: 'rgba(16, 16, 24, 0.45)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(255, 255, 255, 0.06)',
                   borderRadius: 'var(--radius-xl)',
                   padding: 'var(--space-2xl)',
                 }}>

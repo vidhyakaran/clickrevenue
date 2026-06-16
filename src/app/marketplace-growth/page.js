@@ -37,7 +37,6 @@ export default function MarketplaceGrowthPage() {
         paddingBottom: 'var(--space-4xl)',
         position: 'relative',
         zIndex: 1,
-        background: 'linear-gradient(180deg, rgba(227, 27, 35, 0.05) 0%, transparent 100%)',
       }}>
         <div className="container">
           <div className="marketplace-pipeline-grid">
@@ -74,8 +73,10 @@ export default function MarketplaceGrowthPage() {
               </div>
             </div>
             <div style={{
-              background: 'var(--cr-surface)',
-              border: '1px solid var(--cr-border)',
+              background: 'rgba(16, 16, 24, 0.45)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255, 255, 255, 0.06)',
               borderRadius: 'var(--radius-2xl)',
               padding: 'var(--space-3xl)',
               textAlign: 'center',
@@ -139,7 +140,13 @@ export default function MarketplaceGrowthPage() {
       </section>
 
       {/* Process */}
-      <section className="section" style={{ background: 'var(--cr-surface)' }}>
+      <section className="section" style={{
+        background: 'rgba(16, 16, 24, 0.3)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderTop: '1px solid rgba(255, 255, 255, 0.04)',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.04)'
+      }}>
         <div className="container">
           <SectionHeading
             label="Our Process"

@@ -2,102 +2,28 @@ import Link from 'next/link';
 import { ArrowRight, TrendingUp, ShoppingBag, Zap, Target, Search, Smartphone, Store } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading/SectionHeading';
 import CTASection from '@/components/CTASection/CTASection';
+import { caseStudiesConfig } from '@/config/stats';
 
 export const metadata = {
   title: 'Case Studies — Growth Results | ClickRevenue',
   description: 'See how ClickRevenue has helped 500+ brands achieve transformative growth across performance marketing, marketplaces, and quick commerce.',
 };
 
-const caseStudies = [
-  {
-    icon: ShoppingBag,
-    tag: 'Marketplace',
-    title: '[TODO: Insert Client Name]',
-    industry: 'FMCG',
-    desc: '[TODO: Insert real case study description]',
-    challenge: '[TODO: Insert real challenge]',
-    solution: '[TODO: Insert real solution]',
-    metrics: [
-      { value: '[TODO]', label: 'Metric 1' },
-      { value: '[TODO]', label: 'Metric 2' },
-      { value: '[TODO]', label: 'Metric 3' },
-    ],
-  },
-  {
-    icon: Zap,
-    tag: 'Quick Commerce',
-    title: '[TODO: Insert Client Name]',
-    industry: 'Fashion & Lifestyle',
-    desc: '[TODO: Insert real case study description]',
-    challenge: '[TODO: Insert real challenge]',
-    solution: '[TODO: Insert real solution]',
-    metrics: [
-      { value: '[TODO]', label: 'Metric 1' },
-      { value: '[TODO]', label: 'Metric 2' },
-      { value: '[TODO]', label: 'Metric 3' },
-    ],
-  },
-  {
-    icon: Target,
-    tag: 'Performance Marketing',
-    title: '[TODO: Insert Client Name]',
-    industry: 'Health & Wellness',
-    desc: '[TODO: Insert real case study description]',
-    challenge: '[TODO: Insert real challenge]',
-    solution: '[TODO: Insert real solution]',
-    metrics: [
-      { value: '[TODO]', label: 'Metric 1' },
-      { value: '[TODO]', label: 'Metric 2' },
-      { value: '[TODO]', label: 'Metric 3' },
-    ],
-  },
-  {
-    icon: Search,
-    tag: 'SEO',
-    title: '[TODO: Insert Client Name]',
-    industry: 'Healthcare',
-    desc: '[TODO: Insert real case study description]',
-    challenge: '[TODO: Insert real challenge]',
-    solution: '[TODO: Insert real solution]',
-    metrics: [
-      { value: '[TODO]', label: 'Metric 1' },
-      { value: '[TODO]', label: 'Metric 2' },
-      { value: '[TODO]', label: 'Metric 3' },
-    ],
-  },
-  {
-    icon: Smartphone,
-    tag: 'Performance Marketing',
-    title: '[TODO: Insert Client Name]',
-    industry: 'Consumer Electronics',
-    desc: '[TODO: Insert real case study description]',
-    challenge: '[TODO: Insert real challenge]',
-    solution: '[TODO: Insert real solution]',
-    metrics: [
-      { value: '[TODO]', label: 'Metric 1' },
-      { value: '[TODO]', label: 'Metric 2' },
-      { value: '[TODO]', label: 'Metric 3' },
-    ],
-  },
-  {
-    icon: Store,
-    tag: 'Marketplace + Quick Commerce',
-    title: '[TODO: Insert Client Name]',
-    industry: 'F&B',
-    desc: '[TODO: Insert real case study description]',
-    challenge: '[TODO: Insert real challenge]',
-    solution: '[TODO: Insert real solution]',
-    metrics: [
-      { value: '[TODO]', label: 'Metric 1' },
-      { value: '[TODO]', label: 'Metric 2' },
-      { value: '[TODO]', label: 'Metric 3' },
-    ],
-  },
-];
+const iconMap = {
+  ShoppingBag,
+  Zap,
+  Target,
+  Search,
+  Smartphone,
+  Store,
+  TrendingUp
+};
 
 const filters = ['All', 'Performance Marketing', 'SEO', 'Marketplace', 'Quick Commerce'];
 
 export default function CaseStudiesPage() {
+  const activeCases = caseStudiesConfig.filter(cs => cs.title !== null);
+
   return (
     <>
       {/* Hero */}
@@ -128,7 +54,7 @@ export default function CaseStudiesPage() {
             color: 'var(--cr-grey-300)', fontSize: 'var(--fs-lg)',
             maxWidth: '600px', margin: '0 auto', lineHeight: 1.7,
           }}>
-            Real results for real brands. See how we&apos;ve helped [TODO: Insert Client Count] businesses achieve transformative growth.
+            Real results for real brands. See how we&apos;ve helped ambitious businesses achieve transformative growth.
           </p>
         </div>
       </section>
@@ -137,7 +63,9 @@ export default function CaseStudiesPage() {
       <section className="section">
         <div className="container">
           <div className="grid-2">
-            {caseStudies.map((cs, i) => (
+            {activeCases.map((cs, i) => {
+              const IconComponent = iconMap[cs.iconType] || TrendingUp;
+              return (
               <div key={i} className="glow-card" style={{
                 padding: 0,
                 overflow: 'hidden',
@@ -151,7 +79,7 @@ export default function CaseStudiesPage() {
                   gap: 'var(--space-md)',
                 }}>
                   <div className="neon-icon" style={{ width: 48, height: 48, flexShrink: 0 }}>
-                    <cs.icon size={24} />
+                    <IconComponent size={24} />
                   </div>
                   <div>
                     <span style={{
@@ -205,7 +133,7 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
