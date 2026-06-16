@@ -1,142 +1,106 @@
-import Link from 'next/link';
-import { ArrowRight, TrendingUp, ShoppingBag, Zap, Target, Search, Smartphone, Store } from 'lucide-react';
-import SectionHeading from '@/components/SectionHeading/SectionHeading';
+import React from 'react';
 import CTASection from '@/components/CTASection/CTASection';
+import NoomoCaseCard from '@/components/NoomoCaseCard/NoomoCaseCard';
 import { caseStudiesConfig } from '@/config/stats';
+import styles from './page.module.css';
 
 export const metadata = {
-  title: 'Case Studies — Growth Results | ClickRevenue',
+  title: 'Work — Growth Results | ClickRevenue',
   description: 'See how ClickRevenue has helped 500+ brands achieve transformative growth across performance marketing, marketplaces, and quick commerce.',
 };
 
-const iconMap = {
-  ShoppingBag,
-  Zap,
-  Target,
-  Search,
-  Smartphone,
-  Store,
-  TrendingUp
-};
-
-const filters = ['All', 'Performance Marketing', 'SEO', 'Marketplace', 'Quick Commerce'];
+// Placeholder images for the massive Noomo-style cards
+const placeholderImages = [
+  'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2670&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2000&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2000&auto=format&fit=crop'
+];
 
 export default function CaseStudiesPage() {
   const activeCases = caseStudiesConfig.filter(cs => cs.title !== null);
 
+  // Re-group cases into Noomo's alternating layout structure:
+  // Item 0, 1 -> Half Slice
+  // Item 2 -> Full Slice
+  // Item 3, 4 -> Half Slice
+  // Item 5 -> Full Slice
+  const slices = [];
+  let i = 0;
+  while (i < activeCases.length) {
+    // If it's the start of a sequence or after a full slice, create a half slice if there are 2 items
+    if ((slices.length % 2 === 0) && (i + 1 < activeCases.length)) {
+      slices.push({
+        type: 'half',
+        items: [activeCases[i], activeCases[i + 1]]
+      });
+      i += 2;
+    } else {
+      slices.push({
+        type: 'full',
+        item: activeCases[i]
+      });
+      i += 1;
+    }
+  }
+
   return (
     <>
-      {/* Hero */}
-      <section style={{
-        paddingTop: 'calc(var(--nav-height) + var(--space-4xl))',
-        paddingBottom: 'var(--space-3xl)',
-        position: 'relative',
-        zIndex: 1,
-      }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '8px',
-            background: 'rgba(227, 27, 35, 0.1)', border: '1px solid rgba(227, 27, 35, 0.3)',
-            borderRadius: 'var(--radius-full)', padding: '8px 20px',
-            fontSize: 'var(--fs-sm)', color: 'var(--neon-cyan)', fontWeight: 600,
-            marginBottom: 'var(--space-xl)',
-          }}>
-            Results That Matter
-          </div>
-          <h1 style={{
-            fontFamily: 'var(--font-display)', fontSize: 'var(--fs-hero)',
-            fontWeight: 900, color: 'var(--cr-white)', lineHeight: 1.1,
-            marginBottom: 'var(--space-lg)',
-          }}>
-            Our <span className="text-gradient">Case Studies</span>
+      <section className={styles.hero}>
+        <div className={styles.heroTitleContainer}>
+          <h1 className={styles.heroTitle}>
+            We craft<br/>
+            interactive<br/>
+            experiences
           </h1>
-          <p style={{
-            color: 'var(--cr-grey-300)', fontSize: 'var(--fs-lg)',
-            maxWidth: '600px', margin: '0 auto', lineHeight: 1.7,
-          }}>
-            Real results for real brands. See how we&apos;ve helped ambitious businesses achieve transformative growth.
-          </p>
+          <h2 className={styles.heroSubtitle}>
+            With a focus on user-centered design and data-driven interactions, we aim to create transformative growth for your brand.
+          </h2>
         </div>
       </section>
 
-      {/* Case Studies Grid */}
-      <section className="section">
-        <div className="container">
-          <div className="grid-2">
-            {activeCases.map((cs, i) => {
-              const IconComponent = iconMap[cs.iconType] || TrendingUp;
-              return (
-              <div key={i} className="glow-card" style={{
-                padding: 0,
-                overflow: 'hidden',
-              }}>
-                {/* Header */}
-                <div style={{
-                  padding: 'var(--space-2xl)',
-                  borderBottom: '1px solid var(--cr-border)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'var(--space-md)',
-                }}>
-                  <div className="neon-icon" style={{ width: 48, height: 48, flexShrink: 0 }}>
-                    <IconComponent size={24} />
-                  </div>
-                  <div>
-                    <span style={{
-                      background: 'rgba(227, 27, 35, 0.1)', color: 'var(--neon-cyan)',
-                      fontSize: 'var(--fs-xs)', fontWeight: 600,
-                      padding: '3px 10px', borderRadius: 'var(--radius-full)',
-                    }}>{cs.tag}</span>
-                    <h3 style={{
-                      fontFamily: 'var(--font-display)', fontSize: 'var(--fs-xl)',
-                      fontWeight: 700, color: 'var(--cr-white)', marginTop: '6px',
-                    }}>{cs.title}</h3>
-                    <span style={{ color: 'var(--cr-grey-500)', fontSize: 'var(--fs-xs)' }}>{cs.industry}</span>
-                  </div>
+      <div className={styles.worksContent}>
+        {slices.map((slice, index) => {
+          if (slice.type === 'half') {
+            return (
+              <div key={index} className={styles.halfSlice}>
+                <div className={styles.halfItem}>
+                  <NoomoCaseCard 
+                    variant="half"
+                    title={slice.items[0].title}
+                    tags={[slice.items[0].tag, slice.items[0].industry, 'Growth']}
+                    imageSrc={placeholderImages[index % placeholderImages.length]}
+                    href="#"
+                  />
                 </div>
-
-                {/* Body */}
-                <div style={{ padding: 'var(--space-2xl)' }}>
-                  <p style={{
-                    color: 'var(--cr-grey-300)', fontSize: 'var(--fs-sm)',
-                    lineHeight: 1.7, marginBottom: 'var(--space-lg)',
-                  }}>{cs.desc}</p>
-
-                  <div style={{ marginBottom: 'var(--space-lg)' }}>
-                    <p style={{ fontSize: 'var(--fs-xs)', color: 'var(--cr-grey-500)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>Challenge</p>
-                    <p style={{ color: 'var(--cr-grey-400)', fontSize: 'var(--fs-sm)' }}>{cs.challenge}</p>
-                  </div>
-
-                  <div style={{ marginBottom: 'var(--space-xl)' }}>
-                    <p style={{ fontSize: 'var(--fs-xs)', color: 'var(--cr-grey-500)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '1px' }}>Solution</p>
-                    <p style={{ color: 'var(--cr-grey-400)', fontSize: 'var(--fs-sm)' }}>{cs.solution}</p>
-                  </div>
-
-                  {/* Metrics */}
-                  <div style={{
-                    display: 'flex',
-                    gap: 'var(--space-lg)',
-                    paddingTop: 'var(--space-lg)',
-                    borderTop: '1px solid var(--cr-border)',
-                  }}>
-                    {cs.metrics.map((m, j) => (
-                      <div key={j}>
-                        <div style={{
-                          fontFamily: 'var(--font-display)', fontSize: 'var(--fs-xl)',
-                          fontWeight: 800, color: 'var(--neon-cyan)',
-                        }}>{m.value}</div>
-                        <div style={{
-                          color: 'var(--cr-grey-500)', fontSize: 'var(--fs-xs)',
-                        }}>{m.label}</div>
-                      </div>
-                    ))}
-                  </div>
+                <div className={styles.halfItem}>
+                  <NoomoCaseCard 
+                    variant="half"
+                    title={slice.items[1].title}
+                    tags={[slice.items[1].tag, slice.items[1].industry, 'Strategy']}
+                    imageSrc={placeholderImages[(index + 1) % placeholderImages.length]}
+                    href="#"
+                  />
                 </div>
               </div>
-            )})}
-          </div>
-        </div>
-      </section>
+            );
+          } else {
+            return (
+              <div key={index} className={styles.fullSlice}>
+                <NoomoCaseCard 
+                  variant="full"
+                  title={slice.item.title}
+                  tags={[slice.item.tag, slice.item.industry, 'Performance', 'Scale']}
+                  imageSrc={placeholderImages[(index + 2) % placeholderImages.length]}
+                  href="#"
+                />
+              </div>
+            );
+          }
+        })}
+      </div>
 
       <CTASection
         title="Want Results Like These?"

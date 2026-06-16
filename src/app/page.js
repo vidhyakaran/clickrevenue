@@ -150,7 +150,7 @@ export default function Home() {
                 <Link href="/contact" className="btn btn-primary">
                   Book a Free Audit <ArrowRight size={18} />
                 </Link>
-                <Link href="#case-studies" className="btn btn-outline">
+                <Link href="/case-studies" className="btn btn-outline">
                   See Our Work
                 </Link>
               </div>

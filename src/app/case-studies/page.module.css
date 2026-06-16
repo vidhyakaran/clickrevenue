@@ -1,0 +1,110 @@
+.hero {
+  padding: 230px 40px 0;
+}
+
+.heroTitleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.heroTitle {
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 1;
+  max-width: 800px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.heroSubtitle {
+  margin-top: 10px;
+  max-width: 340px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 200px 40px 0;
+  }
+  .heroTitle {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 160px 20px 0;
+  }
+  .heroTitle {
+    font-size: 40px;
+  }
+  .heroSubtitle {
+    max-width: 100%;
+  }
+}
+
+/* Works Content Wrapper */
+.worksContent {
+  margin-top: 100px;
+  margin-bottom: 140px;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .worksContent {
+    margin-top: 60px;
+    margin-bottom: 80px;
+    padding: 0 20px;
+  }
+}
+
+/* Slices */
+.fullSlice {
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.halfSlice {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+
+.halfItem {
+  flex: 0 0 calc(50% - 20px);
+  width: calc(50% - 20px);
+}
+
+/* Specific half-slice offsets as seen on Noomo */
+.halfSlice .halfItem:last-child {
+  margin-top: 80px; /* Offset the second item slightly downwards */
+}
+
+@media (max-width: 768px) {
+  .fullSlice, .halfSlice {
+    margin-bottom: 60px;
+  }
+  .halfSlice {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .halfItem {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  .halfSlice .halfItem:last-child {
+    margin-top: 0;
+  }
+}
