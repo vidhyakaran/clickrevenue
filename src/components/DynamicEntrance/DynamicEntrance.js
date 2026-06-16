@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
-import { MousePointer2 } from 'lucide-react';
+import Logo from '../Logo/Logo';
 import styles from './DynamicEntrance.module.css';
 
 const EntranceContext = createContext({
-  stage: 'settled', // 'initial', 'moving', 'clicked', 'revealed', 'counting', 'settled'
+  stage: 'settled', // 'initial', 'pulsing', 'opening', 'revealed', 'counting', 'settled'
   hasPlayed: true,
 });
 
@@ -30,29 +30,27 @@ export default function DynamicEntrance({ children }) {
   useEffect(() => {
     if (hasPlayed || !mounted) return;
 
-    // Sequence timing
     const timers = [];
     
-    // 1. Move cursor in
-    timers.push(setTimeout(() => setStage('moving'), 100));
+    // 1. Logo glows/pulses for a moment
+    timers.push(setTimeout(() => setStage('pulsing'), 200));
     
-    // 2. Click
-    timers.push(setTimeout(() => setStage('clicked'), 800));
+    // 2. Gate starts opening
+    timers.push(setTimeout(() => setStage('opening'), 1200));
     
-    // 3. Reveal Text
-    timers.push(setTimeout(() => setStage('revealed'), 1000));
+    // 3. Hero content reveals
+    timers.push(setTimeout(() => setStage('revealed'), 1800));
     
     // 4. Start Counting
-    timers.push(setTimeout(() => setStage('counting'), 1400));
+    timers.push(setTimeout(() => setStage('counting'), 2200));
     
-    // 5. Settle
+    // 5. Settle state (cleanup)
     timers.push(setTimeout(() => {
       setStage('settled');
       setHasPlayed(true);
       sessionStorage.setItem('clickRevenueEntrancePlayed', 'true');
-    }, 2500));
+    }, 3200));
 
-    // Handle skip
     const handleSkip = () => {
       timers.forEach(clearTimeout);
       setStage('settled');
@@ -70,7 +68,6 @@ export default function DynamicEntrance({ children }) {
     };
   }, [hasPlayed, mounted]);
 
-  // If SSR or prefers reduced motion or already played, render statically immediately
   if (!mounted || hasPlayed) {
     return (
       <EntranceContext.Provider value={{ stage: 'settled', hasPlayed: true }}>
@@ -79,63 +76,85 @@ export default function DynamicEntrance({ children }) {
     );
   }
 
+  const isGateVisible = stage === 'initial' || stage === 'pulsing' || stage === 'opening';
+
   return (
     <EntranceContext.Provider value={{ stage, hasPlayed }}>
       <div className={styles.container}>
-        {/* The Animated Cursor */}
+        
+        {/* Full Screen Shutter Gate */}
         <AnimatePresence>
-          {stage !== 'settled' && stage !== 'counting' && (
-            <motion.div
-              initial={{ x: 100, y: 150, opacity: 0 }}
-              animate={
-                stage === 'initial' ? { x: 100, y: 150, opacity: 0 } :
-                stage === 'moving' ? { x: 0, y: 0, opacity: 1 } :
-                { x: 0, y: 0, opacity: 0, scale: 0.8 } // clicked
-              }
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className={styles.cursorWrapper}
-              aria-hidden="true"
-            >
-              <MousePointer2 size={40} fill="#00FF88" stroke="#0A0A0F" strokeWidth={2} />
+          {isGateVisible && (
+            <div className={styles.shutterWrapper}>
               
-              {/* Ripple on Click */}
-              {stage === 'clicked' && (
-                <motion.div
-                  initial={{ scale: 0.5, opacity: 1 }}
-                  animate={{ scale: 4, opacity: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className={styles.ripple}
-                />
-              )}
-            </motion.div>
+              {/* Top Panel */}
+              <motion.div
+                initial={{ y: 0 }}
+                animate={stage === 'opening' ? { y: '-100%' } : { y: 0 }}
+                transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+                className={styles.shutterPanel}
+              >
+                <div className={styles.logoTop}>
+                  <motion.div
+                    animate={stage === 'pulsing' ? { scale: 1.05, textShadow: '0 0 20px rgba(0,255,136,0.5)' } : { scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{ pointerEvents: 'none', position: 'relative', top: '16px' }} // 16px to align exactly at the cut
+                  >
+                     <Logo forceDarkMode={true} />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Bottom Panel */}
+              <motion.div
+                initial={{ y: 0 }}
+                animate={stage === 'opening' ? { y: '100%' } : { y: 0 }}
+                transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+                className={`${styles.shutterPanel} ${styles.shutterPanelBottom}`}
+              >
+                <div className={styles.logoBottom}>
+                  <motion.div
+                    animate={stage === 'pulsing' ? { scale: 1.05, textShadow: '0 0 20px rgba(0,255,136,0.5)' } : { scale: 1 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    style={{ pointerEvents: 'none', position: 'relative', top: '-16px' }} // offset matching top
+                  >
+                    <Logo forceDarkMode={true} />
+                  </motion.div>
+                </div>
+              </motion.div>
+
+            </div>
           )}
         </AnimatePresence>
 
-        {/* The Content (Children) */}
+        {/* Hero Content Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30, scale: 0.98 }}
           animate={{
             opacity: stage === 'revealed' || stage === 'counting' || stage === 'settled' ? 1 : 0,
-            y: stage === 'revealed' || stage === 'counting' || stage === 'settled' ? 0 : 20
+            y: stage === 'revealed' || stage === 'counting' || stage === 'settled' ? 0 : 30,
+            scale: stage === 'revealed' || stage === 'counting' || stage === 'settled' ? 1 : 0.98
           }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className={styles.contentWrapper}
         >
           {children}
         </motion.div>
 
-        {/* Skip button for accessibility */}
-        <button
-          onClick={() => {
-            setStage('settled');
-            setHasPlayed(true);
-            sessionStorage.setItem('clickRevenueEntrancePlayed', 'true');
-          }}
-          className={styles.skipBtn}
-          aria-label="Skip entrance animation"
-        >
-          Skip Intro
-        </button>
+        {/* Skip Button */}
+        {isGateVisible && (
+          <button
+            onClick={() => {
+              setStage('settled');
+              setHasPlayed(true);
+              sessionStorage.setItem('clickRevenueEntrancePlayed', 'true');
+            }}
+            className={styles.skipBtn}
+            aria-label="Skip entrance animation"
+          >
+            Skip Intro
+          </button>
+        )}
       </div>
     </EntranceContext.Provider>
   );
